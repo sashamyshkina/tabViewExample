@@ -18,14 +18,19 @@ struct ContentView: View {
     }
     
     
-    var cardContainerView: some View {
+    private var cardContainerView: some View {
         let view = VStack(spacing: 0) {
             TabView() {
                 ForEach(cards, id: \.id) { model in
                     BasicCardView(model: model)
+                        .padding(.bottom)
                 }
             }
+            /// Comment next line if you need to display dots representing current index
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            
+            /// Uncomment next line if you need to display dots representing current index
+            //.tabViewStyle(.page(indexDisplayMode: .always))
         }
         return view
     }

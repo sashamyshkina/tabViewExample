@@ -23,20 +23,40 @@ struct BasicCardView: View {
                 .fill(model.color)
                 
             VStack(alignment: .leading, spacing: UI.defaultOffset) {
-                Text(model.title)
-                    .font(.largeTitle)
+                title(model.title)
                 
-                Text(model.subtitle)
-                    .font(.title2)
-                    .padding(.bottom, UI.defaultOffset)
-                
-                Text(model.description)
-                    .font(.body)
+                section(model.subtitle)
+                section(model.description)
             }
             .padding(.horizontal, UI.defaultOffset)
             
         }
         .padding(UI.largerOffset)
+    }
+    
+    private func title(_ text: String) -> some View {
+        return HStack {
+            Text(text)
+                .font(Font.system(size: 30, weight: .bold))
+                .multilineTextAlignment(.leading)
+        }.padding(.bottom, UI.defaultOffset)
+    }
+    
+    private func section(_ text: String) -> some View {
+        let stack = VStack {
+            HStack {
+                Text("Section: ")
+                    .font(.subheadline)
+                    .foregroundColor(Color.gray.opacity(0.8))
+                    .padding([.vertical], -10)
+                Spacer()
+            }
+            
+            Text(text)
+                .font(.title2)
+                .padding(.bottom, UI.defaultOffset)
+        }
+        return stack
     }
 }
 

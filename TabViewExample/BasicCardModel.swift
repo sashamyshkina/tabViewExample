@@ -16,9 +16,9 @@ protocol BasicCardModelProtocol: Identifiable {
 }
 
 struct BasicCardModel: BasicCardModelProtocol {
-    var title: String = "TabView"
-    var subtitle: String  = "structure; a view in SwiftUI"
-    var description: String = "TabView is a view that switches between multiple child views using interactive user interface elements. This is an example of TabView with .tabViewStyle modifier, which creates specification for the appearance and interaction of a TabView."
+    var title: String = "Card title"
+    var subtitle: String  = "TabView is a view that switches between multiple child views using interactive user interface elements."
+    var description: String = "This is an example of TabView with .tabViewStyle modifier, which creates specification for the appearance and interaction of a TabView."
     var id: Int
     var color: Color {
         return Color.gray.opacity(Double(id) / 10)

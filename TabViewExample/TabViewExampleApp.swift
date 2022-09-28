@@ -12,6 +12,14 @@ struct TabViewExampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    setupUIPageControlApperance()
+                }
         }
+    }
+    
+    private func setupUIPageControlApperance() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .black
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
     }
 }
